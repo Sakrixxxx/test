@@ -432,9 +432,12 @@ $("#paged_view_content > table.vis.modemenu > tbody > tr > td.selected")[1].inne
                         <td>
                             Angriff von: ${coords[0]}, ${coords[1]}<br>
                             Ankunft: ${arrival}<br>
-                            <button onclick='DBInfo.showAttackDetail(${coords[0]}, ${coords[1]}, "${arrival}")'>Details anzeigen</button>
+                            <div id="attackInfo_${index}"></div>
                         </td>
                     `);
+            
+                    // Rufe die Funktion showAttackDetail auf, um die Informationen in das entsprechende Div-Element einzufügen
+                    DBInfo.showAttackDetail(coords[0], coords[1], arrival, index);
                 }
             },
             showAttackDetail(data, x, y, arrival) {
